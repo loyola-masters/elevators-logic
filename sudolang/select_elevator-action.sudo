@@ -1,0 +1,45 @@
+OfficeBuilding {
+  State {
+    Elevator1: 0
+    Elevator2: 0
+  }
+
+  Constraints {
+    Select the elevators with the lowest level position for an incoming person on the ground level.
+    If both are at the ground level, choose the one that is closer to the user position.
+    Provide only one elevator if both are compliant.
+  }
+
+  findElevator() {
+    // Find the elevator(s) with the lowest level position
+    let lowestLevel = Math.min(Elevator1, Elevator2)
+    let elevators = []
+    let action = ""
+    
+    if (Elevator1 == lowestLevel) {
+      elevators.push("Elevator1")
+    }
+    if (Elevator2 == lowestLevel) {
+      elevators.push("Elevator2")
+    }
+
+    if (lowestLevel > 0) {
+      action = "move"
+    } 
+    else {
+      // At least one elevator is not at the ground level
+      action = "move and open"
+    }
+    
+    return { elevators, lowestLevel, action, reason_why_you_selected_the_elevator }
+  }
+}
+
+OfficeBuilding.findElevator()
+
+
+Example output:
+
+```JavaScript
+  console.log(OfficeBuilding.findElevator());
+```

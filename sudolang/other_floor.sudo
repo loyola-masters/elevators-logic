@@ -1,0 +1,38 @@
+OfficeBuilding {
+  State {
+    Elevator1: 2,
+    Elevator2: 0,
+    UserFloor: 1
+  }
+
+  Constraints {
+    Select the elevator which is nearest to the user floor.
+  }
+
+  findElevator() {
+    // Find the elevator(s) with the lowest level position
+    let nearestElevator = Math.min(abs(UserFloor-Elevator1), abs(UserFloor-Elevator2);
+    let elevators = [];
+    let action = "";
+
+    if (abs(UserFloor-Elevator1) === nearestElevator) {
+      elevators.push("Elevator1");
+    }
+    if (abs(UserFloor-Elevator2) === nearestElevator) {
+      elevators.push("Elevator2");
+    }
+
+    if (nearestElevator > 0) {
+      action = "move and open";
+    } else {
+      // At least one elevator is not at the ground level
+      action = "open";
+    }
+    
+    return { elevators, nearestElevator, action };
+  }
+}
+
+Example output:
+
+console.log(OfficeBuilding.findElevator());

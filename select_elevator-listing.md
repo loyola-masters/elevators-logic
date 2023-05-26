@@ -13,6 +13,7 @@ elevator(elevator2).
 
 true.
 
+## Listing all
 ?- listing().
 
 move(Elevator) :-

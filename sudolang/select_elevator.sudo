@@ -1,0 +1,25 @@
+OfficeBuilding {
+  State {
+    Elevator1: 4
+    Elevator2: 2
+  }
+
+  Constraints {
+    Select the elevators with the lowest level position for an incoming person on the ground level.
+  }
+
+  findElevator() {
+    // Find the elevator(s) with the lowest level position
+    let lowestLevel = Math.min(Elevator1, Elevator2)
+    let elevators = []
+    if (Elevator1 == lowestLevel) {
+      elevators.push("Elevator1")
+    }
+    if (Elevator2 == lowestLevel) {
+      elevators.push("Elevator2")
+    }
+    return elevators
+  }
+}
+
+OfficeBuilding.findElevator()
